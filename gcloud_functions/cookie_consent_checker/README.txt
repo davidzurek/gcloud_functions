@@ -1,0 +1,7 @@
+- google cloud function that is triggered via an HTTP request
+- first the function decodes the URL string
+- then it saves the decoded string into a pandas dataframe with timestamp
+- after that it will check if the given bigquery table exists (check variable 'table_id')
+- if not, it will create a new table (user has to provide a new table name in the variable 'table_id') and load the pandas dataframe to it
+- if the provided table already exists, it will ignore creating a new table - instead it will insert new row(s) from the dataframe into the existing table
+- a try-except block catches any errors that occur and prevent this function to crash
