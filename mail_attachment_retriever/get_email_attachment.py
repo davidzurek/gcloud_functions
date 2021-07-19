@@ -29,10 +29,8 @@ def get_date():
 def send_mail(datetime):
     sender_email = username
     sender_password = password
-    # rec_email = ["d.zurek@pa.ag", "martech-analytics@pa.ag", "martech@pa.ag"]
-    rec_email = ["d.zurek@pa.ag"]
-    msg = "Subject: SumUp report has been updated at {}\r\nData upload to BQ successfully completed. \n\nKind regards, \nTeam MarTech".format(
-        datetime[0])
+    rec_email = ["your receiver mail address"]
+    msg = "Subject: Any Subject \r\nAny text for body."
 
     smtp_obj = smtplib.SMTP(smtp_host, port=587)
     smtp_obj.ehlo()
@@ -53,8 +51,8 @@ def create_dataframe(file):
 
 
 def upload_df_to_bq(dataframe):
-    project_id = "pa-internal-projects"
-    table = "sumup_reporting_data.csv_test_2"
+    project_id = "your-project-id"
+    table = "your-table-name"
     bq_schema = [{"name": "datetime", "type": "DATETIME"}]
 
     dataframe.to_gbq(
@@ -62,9 +60,9 @@ def upload_df_to_bq(dataframe):
 
 
 def search_mail():
-    mail_folder = "sumup_report"
-    sender_address = "om-data@sumup.com"
-    mail_subject = "performance report"
+    mail_folder = "any mail folder"
+    sender_address = "any sender address here"
+    mail_subject = "any subject"
 
     return mail_folder, sender_address, mail_subject
 
